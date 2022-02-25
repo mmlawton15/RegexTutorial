@@ -24,21 +24,30 @@ Below you will find a list of different Regex Components that exist, along with 
 
 ### Anchors
 An anchor helps identify the beginning and the end of a string. There are different ways to notate an anchor, but in this example we will be using `^` and `$` symbol. The `^` is the first symbol after the forward slash, meaning the code can expect a string to follow until it encounters a `$`. You will see in our email example that we have a `^` at the beginning of the code, and a `$` at the end of the code.
-- /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+- /`^`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`$`/
 
 ### Quantifiers
 
 ### OR Operator
 
 ### Character Classes
-Character classes for Regexes describe what kind of characters are accepted in the string. In this example, the regex will accept any lowercase letters a-z.  Here is an example of what this looks like in javascript:
+Character classes for Regexes describe what kind of characters are accepted in the string. In this email example, the regex will accept any lowercase letters (a-z) and any digits (0-9). There is an additional example of what this looks like in javascript below:
+- /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
 ```js
-const regex = /[a-z]/
-console.log(regex.test("supercalifragilisticexpialidocious"))
+const regexOne = /[a-z]/
+console.log(regexOne.test("supercalifragilisticexpialidocious"))
 //this would log true, because all of the characters in this string are lowercase letters
-console.log(regex.test("Periwinkle"))
+console.log(regexOne.test("Periwinkle"))
 //this would log false, due to the uppercase letter
+
+const regexTwo= /[A-Z0-9]/
+console.log(regexTwo.test("Bananas1"))
+//this would return false because there are lowercase letters included
+console.log(regexTwo.test("CHAOTICLETTERS12"))
+//would return two because it is all capitals and digits.
+console.log(regexTwo.test("ALPHABET"))
+//would also return true, although no digits are present because there is only uppercase letters.
 ```
 
 ### Flags
