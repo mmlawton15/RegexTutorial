@@ -1,10 +1,9 @@
-# Title (replace with your title)
-
-Introductory paragraph (replace this with your text)
+# MM's Regex Tutorial
+Hello, and welcome to my Regex Tutorial for matching an email value.
 
 ## Summary
-
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+In this tutorial, I will explain the syntax of matching a an email value using Regex, or regular expressions. The expression I will be using is below. At the end of this tutorial, you will be able to read and understand what this line of code is looking for and means. Happy coding!
+- /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
 ## Table of Contents
 
@@ -21,14 +20,26 @@ Briefly summarize the regex you will be describing and what you will explain. In
 - [Look-ahead and Look-behind](#look-ahead-and-look-behind)
 
 ## Regex Components
+Below you will find a list of different Regex Components that exist, along with explanations and examples. For the most part, we will be using the example mentioned in the smmary above, but Regexes are incredibly versatile and can be used in multiple different ways! All regex strings being and end with /.
 
 ### Anchors
+An anchor helps identify the beginning and the end of a string. There are different ways to notate an anchor, but in this example we will be using `^` and `$` symbol. The `^` is the first symbol after the forward slash, meaning the code can expect a string to follow until it encounters a `$`. You will see in our email example that we have a `^` at the beginning of the code, and a `$` at the end of the code.
+- /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
 ### Quantifiers
 
 ### OR Operator
 
 ### Character Classes
+Character classes for Regexes describe what kind of characters are accepted in the string. In this example, the regex will accept any lowercase letters a-z.  Here is an example of what this looks like in javascript:
+
+```js
+const regex = /[a-z]/
+console.log(regex.test("supercalifragilisticexpialidocious"))
+//this would log true, because all of the characters in this string are lowercase letters
+console.log(regex.test("Periwinkle"))
+//this would log false, due to the uppercase letter
+```
 
 ### Flags
 
