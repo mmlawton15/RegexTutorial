@@ -45,5 +45,4 @@ Briefly summarize the regex you will be describing and what you will explain. In
 ### Look-ahead and Look-behind
 
 ## Author
-
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Hi! Thanks for reading. My name is Mary Margaret and I am the author of this tutorial. I am an inquisitive student with a humble sense of humor and a positive demeanor. I enjoy trying new foods, visiting new places, tending to my many plants, and spending time with friends and family. I am using this bootcamp to sharpen my skills in preparation for a job in technology. I studied graphic design in college, which gives me an eye for front end design, but enjoy doing what it takes to make the backend work as well. You can find me at my GitHub Repository (https://github.com/mmlawton15).
