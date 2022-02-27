@@ -21,7 +21,7 @@ In this tutorial, I will explain the syntax of matching a an email value using R
 
 
 ## Regex Components
-Below you will find a list of different Regex Components that exist, along with explanations and examples. For the most part, we will be using the example mentioned in the smmary above, but Regexes are incredibly versatile and can be used in multiple different ways! All regex strings being and end with /.
+Below you will find a list of different Regex Components that exist, along with explanations and examples. I have structured the below chapters to be in the order you read the Regex from left to right. For the most part, we will be using the example mentioned in the smmary above, but Regexes are incredibly versatile and can be used in multiple different ways! All regex strings being and end with /.
 
 
 ### Anchors
@@ -29,16 +29,30 @@ An anchor helps identify the beginning and the end of a string. There are differ
 - /`^`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`$`/
 
 
-### Quantifiers
-Quantifiers determine how many time a character, symbol or digit appears in an expression. Quantifier symbols include *, ?, {, }, and +. These symbols mean different amounts, but in our example you see `+` appear twice, both following character classes. 
-1. Our first example of + is after the first 15 characters of the expression. This means this expression will accept any letters a-z, and digits 0-9, and the symbols _, \, ., and - any numbers of times. This is common for emails, as many people will do first.last@email.com or first_last_1@email.com.
-2. Our second example of + appearing is 11 characters after the @ symbol. What this one means is that this expression will match any single digit, any letter a-z, and \, ., and - any number of times.
-- /^([a-z0-9_\.-]`+`)@([\da-z\.-]`+`)\.([a-z\.]{2,6})$/
+### Boundaries
+Boundaries are deefined by anchors. As mentioned above, ^ and $ mark the beginning and the end of the string. In this case, all of the text that falls between ^ and $ are what the regex will be matching to!
+- /`^`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`$`/
+
+
+### Grouping and Capturing
+Catching groups in Regex is defined by parentheses (). This is so the code associates symbols and letters together and can compartmentalize them in preparation for matching. In our example, we have 3 groups, `([a-z0-9_\.-]+)`, `([\da-z\.-]+)` and `([a-z\.]{2,6})`. To break this down:
+1. The first group is for the characters that happen before the @ symbol. The + sign is the last symbol in this group, meaning that it only applies to the characters that are in this group. 
+2. The second group is after the @ symbol, and would most likely apply to the name of a company, for example first_last@apple.com. 
+3. The third group would be for the .com, .org, .edu, .co etc.
+- /^`([a-z0-9_\.-]+)`@`([\da-z\.-]+)`\.`([a-z\.]{2,6})`$/
+
+
+### Bracket Expressions
+Brackets are used to determine what characters, digits and symbols are in a string. Because our example has a-z and 0-9 inside the brackets, this means it will accept any letter in the alphabet. The + sign outside of the bracket means we can have any number of the same letter or digit in the string. This is important, because brackets are usually exclusive in the way they accept a single digit/character. In our example, we have 3 brackets (in groups mentioned above). 
+1. Bracket 1 accepts any letter a-z, any number 0-9, and any of these symbols: \, ., _, -. The plus sign allowes duplicates of these! 
+2. Bracket 2 accepts any single digit, any letter from a-z, and any symbol \, ., -. Again, the plus sign allows for multiple of these characters.
+3. Bracket 3 includes any letter a-z, and either the . or the \ symbol.
+- /`^`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`$`/
 
 
 ### Character Classes
-Character classes for Regexes describe what kind of characters are accepted in the string. In this email example, the regex will accept any lowercase letters (a-z) and any digits (0-9). There is an additional example of what this looks like in javascript below:
-- /^([`a-z0-9`_\.-]+)@([\d`a-z`\.-]+)\.([`a-z`\.]{2,6})$/
+Character classes for Regexes describe what kind of characters are accepted in the string. In this email example, the regex will accept any lowercase letters (a-z) and any digits (0-9). The \d snippent of code after the @ symbol means it will accept a single digit, for example first.last@1email.com. There is an additional example of what this looks like in javascript below:
+- /^([`a-z0-9`_\.-]+)@([`\da-z`\.-]+)\.([`a-z`\.]{2,6})$/
 
 ```js
 const regexOne = /[a-z]/
@@ -57,17 +71,17 @@ console.log(regexTwo.test("ALPHABET"))
 ```
 
 
-### Grouping and Capturing
-Catching groups in Regex is defined by parentheses (). This is so the code associates symbols and letters together and can compartmentalize them in preparation for matching. In our example, we have 3 groups, `([a-z0-9_\.-]+)`, `([\da-z\.-]+)` and `([a-z\.]{2,6})`. To break this down, the first group is for the characters that happen before the @ symbol. The + sign is the last symbol in this group, meaning that it only applies to the characters that are in this group. The second group is after the @ symbol, and would most likely apply to the name of a company, for example first_last@apple.com. The third group would be for the .com, .org, .edu etc.
-- /^`([a-z0-9_\.-]+)`@`([\da-z\.-]+)`\.`([a-z\.]{2,6})`$/
-
-### Bracket Expressions
+### Quantifiers
+Quantifiers determine how many time a character, symbol or digit appears in an expression. Quantifier symbols include *, ?, {, }, and +. These symbols mean different amounts, but in our example you see `+` appear twice, both following character classes. You will also see {2, 6} near the end of the expression
+1. Our first example of + is after the first 15 characters of the expression. This means this expression will accept any letters a-z, and digits 0-9, and the symbols _, \, ., and - any numbers of times. This is common for emails, as many people will do first.last@email.com or first_last_1@email.com.
+2. Our second example of + appearing is 11 characters after the @ symbol. What this one means is that this expression will match any single digit, any letter a-z, and \, ., and - any number of times.
+3. The {2,6} near the end of the expression applies to the bracket right before it, meaning it will accept any combination of letters from a-z and a \ or . at least 2 times, at most 6. An example that would satisfy this argument would be first.last@usc.com. 
+- /^([a-z0-9_\.-]`+`)@([\da-z\.-]`+`)\.([a-z\.]{2,6})$/
 
 
 ### Greedy and Lazy Match
-
-
-### Boundaries
+Greedy and Lazy Match have to do with quantifiers. Greedy match examples are +, *, ?, {}, as these accept as much/many different kinds of characters/digits/symbols as they can. They only return what is needed to match the expression, hence why they are referred to as greedy. Lazy Match examples only repeat as many times as needed to match the regex expression, and are notated by a ? after a +, *, or ?.
+- /`^`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`$`/
 
 
 ### Back-references
