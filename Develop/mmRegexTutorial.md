@@ -2,11 +2,10 @@
 Hello, and welcome to my Regex Tutorial for matching an email value.
 
 ## Summary
-In this tutorial, I will explain the syntax of matching a an email value using Regex, or regular expressions. The expression I will be using is below. At the end of this tutorial, you will be able to read and understand what this line of code is looking for and means. Happy coding!
+In this tutorial, I will explain the syntax of matching an email value using Regex, or regular expressions. The expression I will be using is below. At the end of this tutorial, you will be able to read and understand what this line of code is looking for and means. Happy coding!
 - /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
 ## Table of Contents
-
 - [Anchors](#anchors)
 - [Boundaries](#boundaries)
 - [Grouping and Capturing](#grouping-and-capturing)
@@ -17,29 +16,29 @@ In this tutorial, I will explain the syntax of matching a an email value using R
 
 
 ## Regex Components
-Below you will find a list of different Regex Components that exist, along with explanations and examples. I have structured the below chapters to be in the order you read the Regex from left to right. For the most part, we will be using the example mentioned in the smmary above, but Regexes are incredibly versatile and can be used in multiple different ways! All regex strings being and end with /.
+Below you'll find a list of different Regex Components that exist, along with explanations and examples. I have structured the below chapters to be in the order you read my Regex example from left to right. For the most part, we will be using the example mentioned in the smmary above, but Regexes are incredibly versatile and can be used in multiple different ways! All regex strings begin and end with /.
 
 
 ### Anchors
-An anchor helps identify the beginning and the end of a string. There are different ways to notate an anchor, but in this example we will be using `^` and `$` symbol. The `^` is the first symbol after the forward slash, meaning the code can expect a string to follow until it encounters a `$`. You will see in our email example that we have a `^` at the beginning of the code, and a `$` at the end of the code.
+An anchor helps identify the beginning and the end of an expression. There are different ways to notate an anchor, but in this example we will be using `^` and `$` symbol. The `^` is the first symbol after the forward slash, meaning the code can expect the expression to follow until a `$` is found. You will see in our email example that we have a `^` at the beginning of the code, and a `$` at the end of the code.
 - /`^`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`$`/
 
 
 ### Boundaries
-Boundaries are deefined by anchors. As mentioned above, ^ and $ mark the beginning and the end of the string. In this case, all of the text that falls between ^ and $ are what the regex will be matching to!
+Boundaries are defined by anchors. As mentioned above, ^ and $ mark the beginning and the end of the expression. In this case, all of the text that falls between ^ and $ are what the regex will be matching to!
 - /`^`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`$`/
 
 
 ### Grouping and Capturing
-Catching groups in Regex is defined by parentheses (). This is so the code associates symbols and letters together and can compartmentalize them in preparation for matching. In our example, we have 3 groups, `([a-z0-9_\.-]+)`, `([\da-z\.-]+)` and `([a-z\.]{2,6})`. To break this down:
+Capturing groups in Regex is defined by parentheses (). This is so the code associates symbols and letters together and can compartmentalize them in preparation for matching. In our example, we have 3 groups, `([a-z0-9_\.-]+)`, `([\da-z\.-]+)` and `([a-z\.]{2,6})`. To break this down:
 1. The first group is for the characters that happen before the @ symbol. The + sign is the last symbol in this group, meaning that it only applies to the characters that are in this group. 
-2. The second group is after the @ symbol, and would most likely apply to the name of a company, for example first_last@apple.com. 
+2. The second group is after the @ symbol, and would apply to the domain name, for example first_last@apple.com. 
 3. The third group would be for the .com, .org, .edu, .co etc.
 - /^`([a-z0-9_\.-]+)`@`([\da-z\.-]+)`\.`([a-z\.]{2,6})`$/
 
 
 ### Bracket Expressions
-Brackets are used to determine what characters, digits and symbols are in a string. Because our example has a-z and 0-9 inside the brackets, this means it will accept any letter in the alphabet. The + sign outside of the bracket means we can have any number of the same letter or digit in the string. This is important, because brackets are usually exclusive in the way they accept a single digit/character. In our example, we have 3 brackets (in groups mentioned above). 
+Brackets are used to determine what characters, digits and symbols are in a string. Because our example has a-z and 0-9 inside the brackets, this expression will accept any letter in the alphabet and single digit. The + sign outside of the bracket means we can have any number of  letters or digits in the string. This is important, because brackets are usually exclusive in the way they accept a single digit/character. In our example, we have 3 brackets (in groups mentioned above). 
 1. Bracket 1 accepts any letter a-z, any number 0-9, and any of these symbols: \, ., _, -. The plus sign allowes duplicates of these! 
 2. Bracket 2 accepts any single digit, any letter from a-z, and any symbol \, ., -. Again, the plus sign allows for multiple of these characters.
 3. Bracket 3 includes any letter a-z, and either the . or the \ symbol.
@@ -68,7 +67,7 @@ console.log(regexTwo.test("ALPHABET"))
 
 
 ### Quantifiers
-Quantifiers determine how many time a character, symbol or digit appears in an expression. Quantifier symbols include *, ?, {, }, and +. These symbols mean different amounts, but in our example you see `+` appear twice, both following character classes. You will also see {2, 6} near the end of the expression
+Quantifiers determine how many time a character, symbol or digit appears in an expression. Quantifier symbols include *, ?, {, }, and +. These symbols mean different amounts, but in our example you see `+` appear twice, both following character classes. You will also see {2, 6} near the end of the expression.
 1. Our first example of + is after the first 15 characters of the expression. This means this expression will accept any letters a-z, and digits 0-9, and the symbols _, \, ., and - any numbers of times. This is common for emails, as many people will do first.last@email.com or first_last_1@email.com.
 2. Our second example of + appearing is 11 characters after the @ symbol. What this one means is that this expression will match any single digit, any letter a-z, and \, ., and - any number of times.
 3. The {2,6} near the end of the expression applies to the bracket right before it, meaning it will accept any combination of letters from a-z and a \ or . at least 2 times, at most 6. An example that would satisfy this argument would be first.last@usc.com. 
