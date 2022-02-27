@@ -24,21 +24,16 @@ An anchor helps identify the beginning and the end of an expression. There are d
 - /`^`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`$`/
 
 ```js
-const regexTestOne = 'Colorado'
-console.log(/o$/.test(regexTestOne));
-//Returns true, because the string ends with an o.
+const regexTestOne = 'Colorado is really pretty'
+console.log(/pretty$/.test(regexTestOne));
+//Returns true, because the string ends with pretty.
 const regexTestOne = 'Colorado'
 console.log(/z$/.test(regexTestOne));
-//Returns false because Colorado doesn't end with z.
+//Returns false because the string doesn't end with z.
 const regexTestOne = 'Colorado'
 console.log(/^C/.test(regexTestOne));
-//Returns true because Colorado begins with a C.
+//Returns true because the string begins with a C.
 ```
-
-
-### Boundaries
-Boundaries are defined by anchors. As mentioned above, ^ and $ mark the beginning and the end of the expression. In this case, all of the text that falls between ^ and $ are what the regex will be matching to!
-- /`^`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`$`/
 
 
 ### Grouping and Capturing
