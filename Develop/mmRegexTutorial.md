@@ -8,16 +8,12 @@ In this tutorial, I will explain the syntax of matching a an email value using R
 ## Table of Contents
 
 - [Anchors](#anchors)
-- [Quantifiers](#quantifiers)
-- [OR Operator](#or-operator)
-- [Character Classes](#character-classes)
-- [Flags](#flags)
+- [Boundaries](#boundaries)
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
+- [Character Classes](#character-classes)
+- [Quantifiers](#quantifiers)
 - [Greedy and Lazy Match](#greedy-and-lazy-match)
-- [Boundaries](#boundaries)
-- [Back-references](#back-references)
-- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
 
 
 ## Regex Components
@@ -82,12 +78,6 @@ Quantifiers determine how many time a character, symbol or digit appears in an e
 ### Greedy and Lazy Match
 Greedy and Lazy Match have to do with quantifiers. Greedy match examples are +, *, ?, {}, as these accept as much/many different kinds of characters/digits/symbols as they can. They only return what is needed to match the expression, hence why they are referred to as greedy. Lazy Match examples only repeat as many times as needed to match the regex expression, and are notated by a ? after a +, *, or ?.
 - /`^`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`$`/
-
-
-### Back-references
-
-
-### Look-ahead and Look-behind
 
 
 ## Author
