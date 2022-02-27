@@ -20,8 +20,20 @@ Below you'll find a list of different Regex Components that exist, along with ex
 
 
 ### Anchors
-An anchor helps identify the beginning and the end of an expression. There are different ways to notate an anchor, but in this example we will be using `^` and `$` symbol. The `^` is the first symbol after the forward slash, meaning the code can expect the expression to follow until a `$` is found. You will see in our email example that we have a `^` at the beginning of the code, and a `$` at the end of the code.
+An anchor helps identify the beginning and the end of an expression. There are different ways to notate an anchor, but in this example we will be using `^` and `$` symbol. The `^` is the first symbol after the forward slash, meaning the code can expect the expression to follow until a `$` is found. You will see in our email example that we have a `^` at the beginning of the code, and a `$` at the end of the code. There is an additional simplified example of javascript below as well.
 - /`^`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`$`/
+
+```js
+const regexTestOne = 'Colorado'
+console.log(/o$/.test(regexTestOne));
+//Returns true, because the string ends with an o.
+const regexTestOne = 'Colorado'
+console.log(/z$/.test(regexTestOne));
+//Returns false because Colorado doesn't end with z.
+const regexTestOne = 'Colorado'
+console.log(/^C/.test(regexTestOne));
+//Returns true because Colorado begins with a C.
+```
 
 
 ### Boundaries
