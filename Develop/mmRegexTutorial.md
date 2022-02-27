@@ -43,6 +43,12 @@ Capturing groups in Regex is defined by parentheses (). This is so the code asso
 3. The third group would be for the .com, .org, .edu, .co etc.
 - /^`([a-z0-9_\.-]+)`@`([\da-z\.-]+)`\.`([a-z\.]{2,6})`$/
 
+```js
+const regexTestTwo = /([a-z0-9]+)/;
+console.log("al1ae0p3".match(regexTestTwo));
+//this would return true because the above regex expression takes any combination of letters a-z and digits 0-9, due to the + after the group
+```
+
 
 ### Bracket Expressions
 Brackets are used to determine what characters, digits and symbols are in a string. Because our example has a-z and 0-9 inside the brackets, this expression will accept any letter in the alphabet and single digit. The + sign outside of the bracket means we can have any number of  letters or digits in the string. This is important, because brackets are usually exclusive in the way they accept a single digit/character. In our example, we have 3 brackets (in groups mentioned above). 
@@ -50,6 +56,15 @@ Brackets are used to determine what characters, digits and symbols are in a stri
 2. Bracket 2 accepts any single digit, any letter from a-z, and any symbol \, ., -. Again, the plus sign allows for multiple of these characters.
 3. Bracket 3 includes any letter a-z, and either the . or the \ symbol.
 - /`^`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`$`/
+
+```js
+const regexTestThree = /[a-z]/
+console.log(regexTestThree)
+//this would accept any single letter a-z
+const regexTestThree = /([a-z]+)/
+console.log(regexTestThree)
+//this would accept any number of letters a-z
+```
 
 
 ### Character Classes
@@ -80,10 +95,22 @@ Quantifiers determine how many time a character, symbol or digit appears in an e
 3. The {2,6} near the end of the expression applies to the bracket right before it, meaning it will accept any combination of letters from a-z and a \ or . at least 2 times, at most 6. An example that would satisfy this argument would be first.last@usc.com. 
 - /^([a-z0-9_\.-]`+`)@([\da-z\.-]`+`)\.([a-z\.]{2,6})$/
 
+```js
+const regexTestFour = /^([0-9]+){10,50}$/
+//this would require a string of digits, at least 10 in length but at most 50 in length.
+```
+
 
 ### Greedy and Lazy Match
 Greedy and Lazy Match have to do with quantifiers. Greedy match examples are +, *, ?, {}, as these accept as much/many different kinds of characters/digits/symbols as they can. They only return what is needed to match the expression, hence why they are referred to as greedy. Lazy Match examples only repeat as many times as needed to match the regex expression, and are notated by a ? after a +, *, or ?.
 - /`^`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`$`/
+
+```js
+const regexTestFive = /([A-Z])*/
+//this would try to match zero or more times, making it greedy because it accepts any amount of tries
+const regexTestSix = /([A-Z])?/
+//this is lazy and would try to match only zero or one time
+```
 
 
 ## Author
