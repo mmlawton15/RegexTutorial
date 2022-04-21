@@ -7,7 +7,9 @@ This is my Regex, or Regular Expression tutorial. I took an example of a regex e
 ## How did I make it?
 I created this by researching Regex and all of it's different components first. I then created a markdown file with a table of contents to organize my thoughts. Finally I went character by character to break down what comprised this expression and explain how/why it works to the user.
 
+## Stack?
+Backend:
+- Regex
+
 ## Where can it be found?
 This can be found at my github repo (https://github.com/mmlawton15/challenge-seventeen-periwinkle)
-
-## What does it look like?
