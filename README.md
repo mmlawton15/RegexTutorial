@@ -10,6 +10,7 @@ I created this by researching Regex and all of it's different components first. 
 ## Stack?
 Backend:
 - Regex
+- Markdown
 
 ## Where can it be found?
 This can be found at my github repo (https://github.com/mmlawton15/challenge-seventeen-periwinkle)
